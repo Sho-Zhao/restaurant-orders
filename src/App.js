@@ -1,24 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import './drinkList.js'
 
 function App() {
+  const names=['Name1', "Name2"];
+  const imgs=['http://abehiroshi.la.coocan.jp/abe-top-20190328-2.jpg', 'http://www.cj-c.com/img/title.gif'];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <drinkList name={names[1]} img={imgs[1]} /> 
   );
 }
 
