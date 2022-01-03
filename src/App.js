@@ -1,13 +1,26 @@
+import React from 'react';
 import './App.css';
-import './drinkList.js'
+import DrinkList from './drinkList'
 
 function App() {
-  const names=['Name1', "Name2"];
-  const imgs=['http://abehiroshi.la.coocan.jp/abe-top-20190328-2.jpg', 'http://www.cj-c.com/img/title.gif'];
+  const data =[
+    {
+      'name': 'Name1',
+      'img' : 'http://abehiroshi.la.coocan.jp/abe-top-20190328-2.jpg',
+    },
+    {
+      'name' : 'Name2',
+      'img' : 'http://www.cj-c.com/img/title.gif',
+    }
+  ]
 
   return (
-    <drinkList name={names[1]} img={imgs[1]} /> 
-  );
+    <div>
+      {data.map(() => (
+      <DrinkList name={data['name']} img={data['img']} />
+      ))}
+    </div>
+    );
 }
 
 export default App;
