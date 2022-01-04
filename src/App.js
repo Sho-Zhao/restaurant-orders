@@ -1,25 +1,28 @@
 import React from 'react';
 import './App.css';
-import DrinkList from './drinkList'
+import DrinkList from './component/drinkList'
+import Cart from './component/cart';
 
 function App() {
-  const data =[
+  const datas =[
     {
-      'name': 'Name1',
-      'img' : 'http://abehiroshi.la.coocan.jp/abe-top-20190328-2.jpg',
+      'name': 'ビール',
+      'img' : 'https://2.bp.blogspot.com/-g0tX6LwKRvU/UgSL9bM2b9I/AAAAAAAAW4g/j8GETOhjCCA/s400/drink_beer.png',
     },
     {
-      'name' : 'Name2',
-      'img' : 'http://www.cj-c.com/img/title.gif',
+      'name' : 'ハイボール',
+      'img' : 'https://1.bp.blogspot.com/-yTyVR-MkXRs/XGjzEE7oWDI/AAAAAAABRls/_-Qcz_hk4iQv69agEdZC0xBdD3qqoNgpACLcBGAs/s350/party_highball_jug.png',
     }
   ]
 
   return (
-    <div>
-      {data.map(() => (
+    <React.Fragment>
+      <h1>Drink Order</h1>
+      {datas.map((data) => (
       <DrinkList name={data['name']} img={data['img']} />
       ))}
-    </div>
+      <Cart/>
+    </React.Fragment>
     );
 }
 
