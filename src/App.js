@@ -13,7 +13,7 @@ function App() {
   };
 
   const addOrder = drink =>{
-    let newList = orderList.slice(0,orderList.length);
+    const newList = [...orderList]
     newList.push(drink)
     setOrder(newList)
   };
