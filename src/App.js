@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Cart from './component/cart';
 import DrinkList from './component/drinkList'
@@ -23,11 +23,25 @@ function App() {
     }
   ]
 
+  let orders = ['ビール', '紹興酒'];
+  const [orderList, setOrder] = useState(orders);
+
+  const clearOrder = () =>{
+    let emptyList = []
+    setOrder(emptyList)
+  }
+
+  const addOrder = drink =>{
+    let currentList = orderList
+    currentList.push(drink)
+    setOrder(currentList)
+  }
+
   return (
     <React.Fragment>
       <h1>Drink Order</h1>
       <DrinkList drinkdata={datas}/>
-      <Cart/>
+      <Cart orderList={orderList} onClear={clearOrder}/>
     </React.Fragment>
     );
 }

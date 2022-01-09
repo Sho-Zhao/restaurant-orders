@@ -3,6 +3,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 export default function DrinkMenu({name, img}){
+    const orderDrink = name => name;
+
     return(
         <div className="ListElem">
                 <Box sx={{
@@ -13,7 +15,7 @@ export default function DrinkMenu({name, img}){
         }}>
                 <h1>{name}</h1>
                 <img src={img} className='drinkimg'/>
-                <Button variant='outlined'>注文</Button>
+                <Button variant='outlined' onClick={orderDrink}>注文</Button>
                 </Box>
         </div>
     )
