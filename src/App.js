@@ -18,17 +18,12 @@ function App() {
     setOrder(newList)
   };
 
-  const sendOrder = list =>{
-    alert(list)
-  };
-
   return (
     <React.Fragment>
       <h1 className='App'>Drink Order</h1>
       <DrinkList drinkdata={DrinkListDatas} 
       orderDrink={addOrder}/>
       <Cart orderList={orderList} 
-            onOrder={sendOrder}
             onClear={clearOrder}/>
     </React.Fragment>
     );
