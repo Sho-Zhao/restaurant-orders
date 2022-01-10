@@ -5,3 +5,16 @@
     width: 60px;
     height: 80px;
 }
+
+.drinklist{
+    margin:30px
+}
+
+.cart{
+    border: 3px solid black;
+    padding: 5px;
+}
+
+.cart-margin{
+    margin: 20px;
+}

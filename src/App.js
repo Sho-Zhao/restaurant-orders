@@ -5,7 +5,7 @@ import DrinkList from './component/drinkList'
 import DrinkListDatas from './drinklist.json'
 
 function App() {
-  const [orderList, setOrder] = useState(['ビール', '紹興酒']);
+  const [orderList, setOrder] = useState([]);
 
   const clearOrder = () =>{
     let emptyList = []
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <h1>Drink Order</h1>
+      <h1 className='App'>Drink Order</h1>
       <DrinkList drinkdata={DrinkListDatas} 
       orderDrink={addOrder}/>
       <Cart orderList={orderList} 
