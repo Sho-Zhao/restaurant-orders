@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 import './compstyle.css'
 import OrderDialog from './orderdialog';
 import OrderModal from './ordermodal';
+import { SendOrder } from './sendOrder.js';
 
 export default function Cart({orderList, onClear=f=>f}){
     const [open, setOpen] = React.useState(false);
@@ -16,6 +17,9 @@ export default function Cart({orderList, onClear=f=>f}){
     const handleOrder = () =>{
         setOpen(false);
         setModal(true);
+        orderList.forEach(element => {
+            SendOrder(1,element)
+        });
     }
 
     const handleClose = () => {
