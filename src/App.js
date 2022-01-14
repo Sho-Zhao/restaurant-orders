@@ -1,30 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Cart from './component/cart';
-import DrinkList from './component/drinkList'
-import DrinkListDatas from './drinklist.json'
+import DrinkOrder from './component/drinkOrder';
+import { Routes, Route } from 'react-router';
+import OrderedList from './component/orderedList';
 
 function App() {
-  const [orderList, setOrder] = useState([]);
-
-  const clearOrder = () =>{
-    let emptyList = []
-    setOrder(emptyList)
-  };
-
-  const addOrder = drink =>{
-    const newList = [...orderList]
-    newList.push(drink)
-    setOrder(newList)
-  };
-
   return (
     <React.Fragment>
-      <h1 className='App'>Drink Order</h1>
-      <DrinkList drinkdata={DrinkListDatas} 
-      orderDrink={addOrder}/>
-      <Cart orderList={orderList} 
-            onClear={clearOrder}/>
+      <Routes>
+        <Route path="/" element={<DrinkOrder />} />
+        <Route path=":tablenum" element={<DrinkOrder />} />
+        <Route path="/foradmin/" element={<OrderedList />} />
+      </Routes>
     </React.Fragment>
     );
 }
