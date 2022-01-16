@@ -3,7 +3,7 @@ import { getFirestore } from "firebase/firestore"
 import { collection, addDoc } from "firebase/firestore";
 
 
-export function SendOrder(tablenum, drink){
+export async function SendOrder(tablenum, drink){
     const firebaseApp = initializeApp({
         apiKey: "AIzaSyBFJlBW38qj1lXCszTVxa6lGjqNuDTIPW0",
         authDomain: "restaurant-order-ba3db.firebaseapp.com",
@@ -12,7 +12,7 @@ export function SendOrder(tablenum, drink){
       
     const db = getFirestore(firebaseApp);
 
-    addDoc(collection(db, "Drinks"), {
+    await addDoc(collection(db, "Drinks"), {
     Table: tablenum,
     Drink: drink
         });

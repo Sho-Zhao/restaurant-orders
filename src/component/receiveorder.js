@@ -2,7 +2,9 @@ import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 import { collection, getDocs } from "firebase/firestore";
 
-export function ReceiveOrder(){
+export async function ReceiveOrder(){
+    let readlist =[]
+
     const firebaseApp = initializeApp({
         apiKey: "AIzaSyBFJlBW38qj1lXCszTVxa6lGjqNuDTIPW0",
         authDomain: "restaurant-order-ba3db.firebaseapp.com",
@@ -12,8 +14,9 @@ export function ReceiveOrder(){
     
     const db = getFirestore(firebaseApp);
 
-    const queryDrink = getDocs(collection(db, "Drinks"));
-    
-    console.log(queryDrink)
-
+    const queryDrink = await getDocs(collection(db, "Drinks"));
+    queryDrink.forEach((drink) => {
+      readlist.push(drink.data())
+    })
+    return readlist
 }
