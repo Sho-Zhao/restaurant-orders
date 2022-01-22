@@ -8,7 +8,6 @@ export default function OrderedList(){
     useEffect(()=>{
         ReceiveOrder().then(list=>{
           setlist(list)
-          console.log(list)
         })
     },[])
 
