@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { deleteDrink } from "./deleteDrink";
 
 export default function OrderedTable ({list=[], Delete=f=>f}){
     return(
@@ -21,10 +22,10 @@ export default function OrderedTable ({list=[], Delete=f=>f}){
           <TableBody>
               {
               list.map((drink, id)=>(
-                <TableRow>
+                <TableRow key={id}>
                   <TableCell sx={{width:60}}>{drink['Table']}</TableCell>
                   <TableCell>{drink['Drink']}</TableCell>
-                  <TableCell><button onClick={()=>Delete(id)}>削除</button></TableCell>
+                  <TableCell><button onClick={()=>deleteDrink(drink["ID"])}>削除</button></TableCell>
                 </TableRow>
               ))}
           </TableBody>
